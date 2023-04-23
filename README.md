@@ -1,3 +1,13 @@
+# Bunzz hackathon Submission
+
+### Project Name
+
+DeMarket
+
+### Project Desctiption
+
+This is a decentralized application that allows users (sellers) to upload their product and users (buyers) to buy products thats they need, the proceeds of the products are not sent to the sellers directly, it is being held by the smart contract temporaly until the buyer reecives the product and confirms the quality of the product. If the proucts is confirmed, the proceeds is sent to to the seller and if the proceeds is rejected the proceeds goes back to the buyer.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

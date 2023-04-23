@@ -139,7 +139,6 @@ export default function Profile() {
     const contract = await createMarketContract();
     try {
       const pend = await contract.fetchMyPendingTransactions();
-      console.log(pend);
       setPending(pend);
     } catch (error) {
       console.log(error);
@@ -150,8 +149,18 @@ export default function Profile() {
     const contract = await createMarketContract();
     try {
       const comp = await contract.fetchMyCompletedTransactions();
-      console.log(comp);
-      setComp(comp);
+      const items = await Promise.all(
+        comp.map(async (i) => {
+          const product = await contract.getProduct(i.productId);
+          let item = {
+            comp: i,
+            product,
+          };
+          return item;
+        })
+      );
+      console.log("cp", items);
+      setComp(items);
     } catch (error) {
       console.log(error);
     }
@@ -268,15 +277,25 @@ export default function Profile() {
                   return (
                     <div className="transactList">
                       <div className="cardt1">
-                        Product Name - {item.productName}
+                        Product Name - {item.comp.productName}
                       </div>
                       <div className="cardt1">
                         Product Amount -{" "}
-                        {Number(ethers.BigNumber.from(item.productAmount)) /
+                        {Number(
+                          ethers.BigNumber.from(item.comp.productAmount)
+                        ) /
                           10 ** 18}
                       </div>
                       <div className="cardt1">
-                        Product Status - {item.status ? "Paid" : "Pending"}
+                        Product Status -{" "}
+                        {Number(ethers.BigNumber.from(item.product.status)) ===
+                        0
+                          ? "Rejected"
+                          : Number(
+                              ethers.BigNumber.from(item.product.status)
+                            ) === 1
+                          ? "Pending"
+                          : "Accepted"}
                       </div>
                     </div>
                   );
