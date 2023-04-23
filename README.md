@@ -8,6 +8,14 @@ DeMarket
 
 This is a decentralized application that allows users (sellers) to upload their product and users (buyers) to buy products thats they need, the proceeds of the products are not sent to the sellers directly, it is being held by the smart contract temporaly until the buyer reecives the product and confirms the quality of the product. If the proucts is confirmed, the proceeds is sent to to the seller and if the proceeds is rejected the proceeds goes back to the buyer.
 
+### Bunzz Module
+
+Link to Bunzz Module - https://app.bunzz.dev/module-templates/bf0e20c6-8ec8-4994-91ad-05ee7dc80ef9/arguments?version=1.0.1
+
+### DAPP
+
+Link to DAPP - https://marketplace-escrow.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
